@@ -1,0 +1,49 @@
+2024-07-03 22:58:45,838 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@6119e9d8
+2024-07-03 22:58:56,728 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@64eeacbe
+2024-07-03 22:59:09,228 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-03 22:59:16,643 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-03 22:59:22,938 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-03 23:11:01,332 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-03 23:32:01,270 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-03 23:32:17,761 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:32:35,392 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:32:43,059 * ERROR * com.wigell.wigellpadel.services.BookingService * saveBooking * Error saving booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:33:02,666 * ERROR * com.wigell.wigellpadel.services.BookingService * saveBooking * Error saving booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:33:15,915 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:33:38,990 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:33:46,105 * ERROR * com.wigell.wigellpadel.services.BookingService * saveBooking * Error saving booking: No instances available for api.exchangerate-api.com
+2024-07-03 23:33:58,071 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-03 23:34:04,082 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-03 23:34:09,322 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-04 00:06:02,295 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:06:16,210 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-04 00:06:20,129 * ERROR * com.wigell.wigellpadel.services.BookingService * updateBooking * Error updating booking: No instances available for api.exchangerate-api.com
+2024-07-04 00:09:32,298 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@1543d646
+2024-07-04 00:09:40,199 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:09:58,905 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@27200d67
+2024-07-04 00:10:07,551 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@1592b120
+2024-07-04 00:22:08,890 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:27:45,170 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:28:03,250 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@80f13aa
+2024-07-04 00:28:10,047 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@25370c
+2024-07-04 00:28:21,343 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-04 00:28:31,929 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-04 00:28:39,204 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-04 00:28:44,796 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-04 00:34:34,147 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:36:53,149 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:37:08,543 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@3ae9426d
+2024-07-04 00:37:14,929 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@68fd0c17
+2024-07-04 00:37:25,869 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-04 00:37:30,685 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-04 00:37:36,142 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-04 00:39:22,403 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:44:27,201 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:44:42,423 * INFO * com.wigell.wigellpadel.services.BookingService * updateBooking * Updated booking: com.wigell.wigellpadel.entities.Booking@80f13aa
+2024-07-04 00:44:47,465 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@4b825061
+2024-07-04 00:45:02,091 * INFO * com.wigell.wigellpadel.services.FieldService * addFieldToBooking * Added field to booking with id: 3
+2024-07-04 00:45:08,748 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-04 00:45:21,090 * INFO * com.wigell.wigellpadel.services.FieldService * deleteFieldFromBooking * Deleted field from booking with id: 2
+2024-07-04 00:45:26,536 * INFO * com.wigell.wigellpadel.services.FieldService * updateFieldOfBooking * Updated field of booking with id: 1
+2024-07-04 00:46:33,710 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
+2024-07-04 00:48:24,420 * INFO * com.wigell.wigellpadel.services.AvailabilityService * isSlotAvailable * Checking availability for field: null date: null time: null
