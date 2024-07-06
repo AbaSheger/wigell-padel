@@ -1,7 +1,11 @@
 package com.wigell.wigellpadel.services;
 
 import com.wigell.wigellpadel.entities.Booking;
+import com.wigell.wigellpadel.entities.Customer;
+import com.wigell.wigellpadel.entities.Field;
 import com.wigell.wigellpadel.repositories.BookingRepository;
+import com.wigell.wigellpadel.repositories.CustomerRepository;
+import com.wigell.wigellpadel.repositories.FieldRepository;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,17 +27,20 @@ public class BookingService {
     @Autowired
     private BookingRepository bookingRepository;
 
+    @Autowired
+    private FieldRepository fieldRepository;
+
 
     @Autowired
     private RestTemplate externalRestTemplate;
 
-
+    @Autowired
+    private CustomerRepository customerRepository;
 
     private final String currencyApiUrl = "https://api.exchangerate-api.com/v4/latest/SEK";
 
     public Map<String, List<Booking>> getAllBookings(Long customerId) {
         List<Booking> allBookings = bookingRepository.findAll().stream()
-                // Ensure booking.getCustomer() is not null before comparing IDs
                 .filter(booking -> booking.getCustomer() != null && booking.getCustomer().getId().equals(customerId))
                 .collect(Collectors.toList());
 
@@ -60,8 +67,28 @@ public class BookingService {
 
     public Booking saveBooking(Booking booking) {
         try {
+
+            if (booking.getField() == null || booking.getField().getId() == null) {
+                throw new IllegalArgumentException("Field ID must be provided");
+            }
+
+            Field field = fieldRepository.findById(booking.getField().getId())
+                    .orElseThrow(() -> new RuntimeException("Field not found"));
+            booking.setField(field);
+
+
+            if (booking.getCustomer() == null || booking.getCustomer().getId() == null) {
+                throw new IllegalArgumentException("Customer ID must be provided");
+            }
+
+            Customer customer = customerRepository.findById(booking.getCustomer().getId())
+                    .orElseThrow(() -> new RuntimeException("Customer not found"));
+            booking.setCustomer(customer);
+
+            // Calculate the Euro amount using the conversion rate from the external API
             double conversionRate = getConversionRate();
             booking.setTotalPriceEuro(booking.getTotalPriceSEK() * conversionRate);
+
             Booking savedBooking = bookingRepository.save(booking);
             logger.info("Created new booking: " + savedBooking);
             return savedBooking;
@@ -71,24 +98,29 @@ public class BookingService {
         }
     }
 
-
     public Booking updateBooking(Long id, Booking booking) {
         try {
-            Booking existingBooking = bookingRepository.findById(id).orElse(null);
-            if (existingBooking != null) {
-                existingBooking.setField(booking.getField());
-                existingBooking.setDate(booking.getDate());
-                existingBooking.setTime(booking.getTime());
-                existingBooking.setTotalPriceSEK(booking.getTotalPriceSEK());
-                double conversionRate = getConversionRate();
-                existingBooking.setTotalPriceEuro(booking.getTotalPriceSEK() * conversionRate);
-                existingBooking.setNumberOfPlayers(booking.getNumberOfPlayers());
-                existingBooking.setCustomer(booking.getCustomer());
-                Booking updatedBooking = bookingRepository.save(existingBooking);
-                logger.info("Updated booking: " + updatedBooking);
-                return updatedBooking;
-            }
-            return null;
+            Booking existingBooking = bookingRepository.findById(id)
+                    .orElseThrow(() -> new RuntimeException("Booking not found"));
+
+            Field field = fieldRepository.findById(booking.getField().getId())
+                    .orElseThrow(() -> new RuntimeException("Field not found"));
+            existingBooking.setField(field);
+
+
+            Customer customer = customerRepository.findById(booking.getCustomer().getId())
+                    .orElseThrow(() -> new RuntimeException("Customer not found"));
+            existingBooking.setCustomer(customer);
+
+            existingBooking.setDate(booking.getDate());
+            existingBooking.setTime(booking.getTime());
+            existingBooking.setTotalPriceSEK(booking.getTotalPriceSEK());
+            double conversionRate = getConversionRate();
+            existingBooking.setTotalPriceEuro(booking.getTotalPriceSEK() * conversionRate);
+            existingBooking.setNumberOfPlayers(booking.getNumberOfPlayers());
+            Booking updatedBooking = bookingRepository.save(existingBooking);
+            logger.info("Updated booking: " + updatedBooking);
+            return updatedBooking;
         } catch (Exception e) {
             logger.error("Error updating booking: " + e.getMessage());
             throw new RuntimeException("Update operation failed", e);

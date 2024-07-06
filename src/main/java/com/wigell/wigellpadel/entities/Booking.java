@@ -10,23 +10,31 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column (length = 100)
-    private String field;
-    @Column (length = 100)
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "field_id")
+    private Field field;
+
+    @Column(length = 100)
     private String date;
-    @Column (length = 100)
+
+    @Column(length = 100)
     private String time;
+
     @Column(name = "total_price_sek", length = 100)
     private Double totalPriceSEK;
+
     @Column(name = "total_price_euro", length = 100)
     private Double totalPriceEuro;
+
     @Column(name = "number_of_players", length = 100)
     private Integer numberOfPlayers;
-    @ManyToOne (fetch = FetchType.EAGER)
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
-    @JsonIgnore
     private Customer customer;
 
+    // Constructors, getters, and setters
     public Booking() {
     }
 
@@ -38,11 +46,11 @@ public class Booking {
         this.id = id;
     }
 
-    public String getField() {
+    public Field getField() {
         return field;
     }
 
-    public void setField(String field) {
+    public void setField(Field field) {
         this.field = field;
     }
 

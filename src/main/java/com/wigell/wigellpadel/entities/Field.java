@@ -2,25 +2,28 @@ package com.wigell.wigellpadel.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
-@Table(name = "customer")
-public class Customer {
+@Table(name = "field")
+public class Field {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(length = 100, unique = true)
-    private String username;
+
     @Column(length = 100)
     private String name;
-    @Column(length = 100)
-    private String address;
 
-    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+    @OneToMany(mappedBy = "field", cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true)
     @JsonIgnore
     private List<Booking> bookings;
+
+    // Constructors, getters, and setters
+    public Field() {
+    }
 
     public Long getId() {
         return id;
@@ -30,28 +33,12 @@ public class Customer {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public List<Booking> getBookings() {
