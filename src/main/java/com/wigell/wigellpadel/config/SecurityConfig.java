@@ -29,19 +29,6 @@ public class SecurityConfig {
         return http.build();
     }
 
-   /* @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf(csrf -> csrf.disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/v5/mybookings").hasRole("USER")
-                        .requestMatchers("/api/v5/booking").hasRole("USER")
-                        .requestMatchers("/api/v5/bookings/**").hasRole("USER")
-                        .anyRequest().authenticated()
-                )
-                .httpBasic(withDefaults());
-        return http.build();
-    } */
 
     @Bean
     public UserDetailsService userDetailsService() {

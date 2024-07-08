@@ -60,10 +60,6 @@ public class BookingService {
     }
 
 
-    public Booking getBookingById(Long id) {
-        return bookingRepository.findById(id).orElse(null);
-    }
-
 
     public Booking saveBooking(Booking booking) {
         try {
@@ -85,7 +81,7 @@ public class BookingService {
                     .orElseThrow(() -> new RuntimeException("Customer not found"));
             booking.setCustomer(customer);
 
-            // Calculate the Euro amount using the conversion rate from the external API
+
             double conversionRate = getConversionRate();
             booking.setTotalPriceEuro(booking.getTotalPriceSEK() * conversionRate);
 
@@ -144,13 +140,6 @@ public class BookingService {
             return rates;
         }
 
-        public void setRates(Map<String, Double> rates) {
-            this.rates = rates;
-        }
     }
 
-    public void deleteBooking(Long id) {
-        bookingRepository.deleteById(id);
-        logger.info("Deleted booking with id: " + id);
-    }
 }

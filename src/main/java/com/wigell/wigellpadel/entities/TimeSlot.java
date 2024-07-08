@@ -14,7 +14,7 @@ public class TimeSlot {
     @Column (length = 50)
     private String time;
 
-    // Constructors, getters, and setters
+
     public TimeSlot() {
     }
 

@@ -5,14 +5,14 @@ import com.wigell.wigellpadel.entities.Booking;
 import com.wigell.wigellpadel.entities.TimeSlot;
 import com.wigell.wigellpadel.repositories.BookingRepository;
 import com.wigell.wigellpadel.repositories.TimeSlotRepository;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Service
 public class AvailabilityService {
@@ -27,7 +27,8 @@ public class AvailabilityService {
     private BookingRepository bookingRepository;
 
 
-    public List<String> getAvailableSlots(String date) {
+
+   /* public Map<String, List<String>> getAvailableSlots(String date) {
         List<Booking> bookings = bookingRepository.findByDate(date);
         List<String> bookedSlots = bookings.stream()
                 .map(booking -> booking.getField().getName() + " at " + booking.getTime())
@@ -37,7 +38,32 @@ public class AvailabilityService {
         List<String> availableSlots = new ArrayList<>(allSlots);
         availableSlots.removeAll(bookedSlots);
 
-        return availableSlots;
+        String title = "Available fields for " + date + ":";
+
+        Map<String, List<String>> result = new HashMap<>();
+        result.put(title, availableSlots);
+
+        return result;
+    }*/
+
+
+    public Map<String, List<String>> getAvailableSlots(String date) {
+        List<Booking> bookings = bookingRepository.findByDate(date);
+        List<String> bookedSlots = bookings.stream()
+                .filter(booking -> fieldService.existsById(booking.getField().getId())) // Filter out bookings for fields that no longer exist
+                .map(booking -> booking.getField().getName() + " at " + booking.getTime())
+                .collect(Collectors.toList());
+
+        List<String> allSlots = generateAllSlots(); // Ensure this method also checks for field existence
+        List<String> availableSlots = new ArrayList<>(allSlots);
+        availableSlots.removeAll(bookedSlots);
+
+        String title = "Available fields for " + date + ":";
+
+        Map<String, List<String>> result = new HashMap<>();
+        result.put(title, availableSlots);
+
+        return result;
     }
 
 

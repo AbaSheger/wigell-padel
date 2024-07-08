@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -24,17 +25,11 @@ public class AvailabilityController {
     private AvailabilityService availabilityService;
 
 
-   /* @GetMapping("/availability")
-    @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Boolean> isSlotAvailable(String field, String date, String time) {
-        return ResponseEntity.ok(availabilityService.isSlotAvailable(field, date, time));
-    } */
-
 
     @GetMapping("/availability")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<List<String>> getAvailableSlots(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String date) {
-        List<String> availableSlots = availabilityService.getAvailableSlots(date);
+    public ResponseEntity<Map<String, List<String>>> getAvailableSlots(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) String date) {
+        Map<String, List<String>> availableSlots = availabilityService.getAvailableSlots(date);
         if (availableSlots.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -43,3 +38,6 @@ public class AvailabilityController {
 
 
 }
+
+
+

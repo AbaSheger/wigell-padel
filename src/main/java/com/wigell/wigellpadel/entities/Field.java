@@ -21,7 +21,7 @@ public class Field {
     @JsonIgnore
     private List<Booking> bookings;
 
-    // Constructors, getters, and setters
+
     public Field() {
     }
 
