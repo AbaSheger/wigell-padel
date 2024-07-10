@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -59,6 +58,60 @@ public class BookingService {
         return bookingsMap;
     }
 
+  /*  public List<BookingDTO> getAllBookings(Long customerId) {
+        List<Booking> allBookings = bookingRepository.findAll().stream()
+                .filter(booking -> booking.getCustomer() != null && booking.getCustomer().getId().equals(customerId))
+                .collect(Collectors.toList());
+
+        List<BookingDTO> previousBookingsDTO = allBookings.stream()
+                .filter(booking -> LocalDate.parse(booking.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")).isBefore(LocalDate.now()))
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
+        List<BookingDTO> activeBookingsDTO = allBookings.stream()
+                .filter(booking -> LocalDate.parse(booking.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")).isAfter(LocalDate.now()) || LocalDate.parse(booking.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd")).isEqual(LocalDate.now()))
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+
+        Map<String, List<BookingDTO>> bookingsMapDTO = new HashMap<>();
+        bookingsMapDTO.put("previousBookings", previousBookingsDTO);
+        bookingsMapDTO.put("activeBookings", activeBookingsDTO);
+
+        return bookingsMapDTO;
+    } */
+
+   /* public List<BookingDTO> getAllBookings(Long customerId) {
+        List<Booking> allBookings = bookingRepository.findAll().stream()
+                .filter(booking -> booking.getCustomer() != null && booking.getCustomer().getId().equals(customerId))
+                .collect(Collectors.toList());
+
+        return allBookings.stream()
+                .map(booking -> {
+                    BookingDTO dto = convertToDTO(booking);
+                    LocalDate bookingDate = LocalDate.parse(booking.getDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                    if (bookingDate.isBefore(LocalDate.now())) {
+                        dto.setBookingStatus("previousBookings");
+                    } else {
+                        dto.setBookingStatus("activeBookings");
+                    }
+                    return dto;
+                })
+                .collect(Collectors.toList());
+    }
+
+
+    private BookingDTO convertToDTO(Booking booking) {
+        BookingDTO bookingDTO = new BookingDTO();
+        bookingDTO.setId(booking.getId());
+        bookingDTO.setField(booking.getField());
+        bookingDTO.setDate(booking.getDate());
+        bookingDTO.setTime(booking.getTime());
+        bookingDTO.setTotalPriceSEK(booking.getTotalPriceSEK());
+        bookingDTO.setTotalPriceEuro(booking.getTotalPriceEuro());
+        bookingDTO.setNumberOfPlayers(booking.getNumberOfPlayers());
+        bookingDTO.setCustomer(booking.getCustomer());
+        return bookingDTO;
+    } */
 
 
     public Booking saveBooking(Booking booking) {

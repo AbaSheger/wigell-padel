@@ -1,43 +1,39 @@
-package com.wigell.wigellpadel.entities;
+/*package com.wigell.wigellpadel.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.wigell.wigellpadel.entities.Booking;
+import com.wigell.wigellpadel.entities.Customer;
+import com.wigell.wigellpadel.entities.Field;
 
-@Entity
-@Table(name = "booking")
-public class Booking {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class BookingDTO {
+
     private Long id;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "field_id")
-
-    private Field field;
-
-    @Column(length = 100)
     private String date;
-
-    @Column(length = 100)
     private String time;
-
-    @Column(name = "total_price_sek", length = 100)
     private Double totalPriceSEK;
-
-    @Column(name = "total_price_euro", length = 100)
     private Double totalPriceEuro;
-
-    @Column(name = "number_of_players", length = 100)
     private Integer numberOfPlayers;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "customer_id")
     private Customer customer;
+    private Field field;
+    private boolean isActive;
+    private String bookingStatus;
 
-    // Constructors, getters, and setters
-    public Booking() {
+
+    public BookingDTO() {
     }
+
+    public BookingDTO(Booking booking) {
+        this.id = booking.getId();
+        this.date = booking.getDate();
+        this.time = booking.getTime();
+        this.totalPriceSEK = booking.getTotalPriceSEK();
+        this.totalPriceEuro = booking.getTotalPriceEuro();
+        this.numberOfPlayers = booking.getNumberOfPlayers();
+        this.customer = booking.getCustomer();
+        this.field = booking.getField();
+    }
+
 
     public Long getId() {
         return id;
@@ -45,14 +41,6 @@ public class Booking {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public Field getField() {
-        return field;
-    }
-
-    public void setField(Field field) {
-        this.field = field;
     }
 
     public String getDate() {
@@ -102,4 +90,32 @@ public class Booking {
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
-}
+
+    public Field getField() {
+        return field;
+    }
+
+    public void setField(Field field) {
+        this.field = field;
+    }
+
+    public boolean isActive() {
+        return isActive;
+    }
+
+    public void setActive(boolean active) {
+        isActive = active;
+    }
+
+    public String getBookingStatus() {
+        return bookingStatus;
+    }
+
+    public void setBookingStatus(String bookingStatus) {
+        this.bookingStatus = bookingStatus;
+    }
+} */
+
+
+
+
