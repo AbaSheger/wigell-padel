@@ -11,7 +11,7 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "field_id")
 
     private Field field;
@@ -31,11 +31,11 @@ public class Booking {
     @Column(name = "number_of_players", length = 100)
     private Integer numberOfPlayers;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    // Constructors, getters, and setters
+
     public Booking() {
     }
 

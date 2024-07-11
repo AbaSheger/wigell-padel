@@ -670,3 +670,36 @@
 2024-07-10 20:14:41,719 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Fields currently in the system: [Field 2, Field 3, Field 4]
 2024-07-10 20:14:41,733 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Generated all slots for fields: [Field 2, Field 3, Field 4]
 2024-07-10 20:14:52,853 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@536a3236
+2024-07-10 20:44:44,920 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 1
+2024-07-10 20:53:24,914 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 1
+2024-07-10 20:53:24,968 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 1
+2024-07-11 01:29:09,327 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 2
+2024-07-11 01:29:09,333 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 2
+2024-07-11 01:29:54,779 * ERROR * com.wigell.wigellpadel.services.BookingService * saveBooking * Error saving booking: Field not found
+2024-07-11 01:30:05,741 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@4a3ba56a
+2024-07-11 01:38:17,940 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 2
+2024-07-11 01:38:17,956 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 2
+2024-07-11 01:38:22,633 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * No bookings found for field id: 4, proceeding to delete field.
+2024-07-11 01:38:22,643 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 4
+2024-07-11 01:39:31,708 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 1
+2024-07-11 01:39:31,724 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 1
+2024-07-11 01:39:38,438 * INFO * com.wigell.wigellpadel.services.FieldService * getAllFieldNames * Retrieved field names: [Field 2, Field 3, Field 4]
+2024-07-11 01:39:38,438 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Fields currently in the system: [Field 2, Field 3, Field 4]
+2024-07-11 01:39:38,444 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Generated all slots for fields: [Field 2, Field 3, Field 4]
+2024-07-11 01:39:59,311 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@1196ce94
+2024-07-11 01:41:05,526 * INFO * com.wigell.wigellpadel.services.BookingService * saveBooking * Created new booking: com.wigell.wigellpadel.entities.Booking@1a9edec8
+2024-07-11 01:41:25,217 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 2
+2024-07-11 01:41:25,224 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 2
+2024-07-11 01:41:28,619 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted all bookings associated with field id: 3
+2024-07-11 01:41:28,626 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 3
+2024-07-11 01:41:32,481 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * No bookings found for field id: 34, proceeding to delete field.
+2024-07-11 01:41:32,485 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 34
+2024-07-11 01:41:37,140 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * No bookings found for field id: 4, proceeding to delete field.
+2024-07-11 01:41:37,155 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 4
+2024-07-11 01:41:44,580 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * No bookings found for field id: 44, proceeding to delete field.
+2024-07-11 01:41:44,583 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 44
+2024-07-11 01:43:49,559 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * No bookings found for field id: 44, proceeding to delete field.
+2024-07-11 01:43:49,581 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Deleted field with id: 44
+2024-07-11 01:50:17,112 * INFO * com.wigell.wigellpadel.services.FieldService * deleteField * Attempted to delete a field that does not exist with id: 44
+2024-07-11 02:01:51,803 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Fields currently in the system: [Field 1, Field 2, Field 3, Field 4]
+2024-07-11 02:01:51,812 * INFO * com.wigell.wigellpadel.services.AvailabilityService * generateAllSlots * Generated all slots for fields: [Field 1, Field 2, Field 3, Field 4]

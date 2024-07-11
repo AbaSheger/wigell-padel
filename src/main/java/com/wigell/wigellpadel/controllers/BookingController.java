@@ -24,14 +24,6 @@ public class BookingController {
         return new ResponseEntity<>(bookings, HttpStatus.OK);
     }
 
-  /*  @PreAuthorize("hasRole('USER')")
-    @GetMapping("/mybookings")
-    public ResponseEntity<List<BookingDTO>> getAllBookings(@RequestParam Long customerId) {
-
-        List<BookingDTO> bookings = bookingService.getAllBookings(customerId);
-
-        return new ResponseEntity<>(bookings, HttpStatus.OK);
-    } */
 
 
     @PreAuthorize("hasRole('USER')")
