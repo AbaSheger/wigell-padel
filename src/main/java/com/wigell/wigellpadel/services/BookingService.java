@@ -127,10 +127,11 @@ public class BookingService {
             CurrencyResponse response = externalRestTemplate.getForObject(currencyApiUrl, CurrencyResponse.class);
             return response != null ? response.getRates().get("EUR") : 0.1;
         } catch (RestClientException e) {
-            logger.error("Error fetching conversion rate: " + e.getMessage());
-            return 0.1;
+            throw new RuntimeException("Error fetching conversion rate: " + e.getMessage(), e);
         }
     }
+
+
 
     private static class CurrencyResponse {
         private Map<String, Double> rates;

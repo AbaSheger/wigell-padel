@@ -4,13 +4,9 @@ import com.wigell.wigellpadel.entities.Booking;
 import com.wigell.wigellpadel.entities.Field;
 import com.wigell.wigellpadel.repositories.BookingRepository;
 import com.wigell.wigellpadel.repositories.FieldRepository;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityNotFoundException;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,8 +55,6 @@ public class FieldService {
 
 
 
-
-
     public Field updateField(Long fieldId, Field fieldDetails) {
         Field field = fieldRepository.findById(fieldId)
                 .orElseThrow(() -> new RuntimeException("Field not found with id: " + fieldId));
@@ -74,9 +68,6 @@ public class FieldService {
         List<String> fieldNames = fieldRepository.findAll().stream()
                 .map(Field::getName)
                 .collect(Collectors.toList());
-
-        // Log field names retrieved
-       // logger.info("Retrieved field names: " + fieldNames);
 
         return fieldNames;
     }
