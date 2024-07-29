@@ -35,11 +35,11 @@ public class AvailabilityService {
     public Map<String, List<String>> getAvailableSlots(String date) {
         List<Booking> bookings = bookingRepository.findByDate(date);
         List<String> bookedSlots = bookings.stream()
-                .filter(booking -> fieldService.existsById(booking.getField().getId())) // Filter out bookings for fields that no longer exist
+                .filter(booking -> fieldService.existsById(booking.getField().getId()))
                 .map(booking -> booking.getField().getName() + " at " + booking.getTime())
                 .collect(Collectors.toList());
 
-        List<String> allSlots = generateAllSlots(); // Ensure this method also checks for field existence
+        List<String> allSlots = generateAllSlots();
         List<String> availableSlots = new ArrayList<>(allSlots);
         availableSlots.removeAll(bookedSlots);
 
